@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a (click)="home()">Home</a></li>
+
+          <li><a (click)="goCafeManagement()">Cafe</a></li>
+          <li><a (click)="goMenuManagement()">Menu</a></li>
+          <li><a (click)="goOrderManagement()">Orders</a></li>
+          <li><a (click)="getall()" >Users</a></li>
+          <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()" >Logout</a></li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+
+  
+  <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Employee Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Mail id</th>
+          <th scope="col">Mobile no.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees; let i=index">
+          <th>{{emp.employeeId}}</th>
+          <th>{{emp.employeeName}}</th>
+          <th>{{emp.employeeMail}}</th>
+          <th>{{emp.employeePhone}}</th>
+          <!-- <td><button class="btn btn-warning" (click)="delete(i)">Delete Trainer</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+  

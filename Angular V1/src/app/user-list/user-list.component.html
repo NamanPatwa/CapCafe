@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a (click)="home()">Home</a></li>
+        <li><a (click)="mapList()">List Cafe</a></li>
+        <li><a (click)="goHelpdesk()">Help Me!</a></li>
+        <li><a (click)="yourOrders()">Orders</a></li>
+        <li><a (click)="profile()">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="navigateResetPassword()">Reset Password</a></li>
+        <li><a (click)="logout()" >Logout</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+
+<h3 style="text-align: center; color: rgb(61, 59, 59);">List of all cafes</h3> <br>
+
+
+<form (ngSubmit)="searchByLocationForUsers()" style="text-align: center;">
+    <div class="form group">
+      <select [(ngModel)]="location" name="location" #loc=ngModel class="form-control"  required>
+          <option *ngFor="let b of locations" [value]="b">{{b}} </option>
+        </select>
+        <span *ngIf="loc.touched && loc.invalid && loc.errors.required" class="alert-warning">
+            Please select correct Location!
+          </span>
+      <button type="submit" class="btn btn-success">Search Cafe Location</button>
+    </div>
+  </form>
+  
+  <!-- <img [src]="'src/felicita.jpg'" alt="image"> -->
+
+<table class="table table-bordered">
+  <tr>
+   
+    <th>Cafe Name</th>
+    <th>Cafe Location</th>
+    <th>Cafe Owner</th>
+    <th>Cafe Image</th>
+    <th>Cafe Rating</th>
+    <th>View Menu</th>
+    
+  </tr>
+
+  <tr *ngFor="let cafe of cafedetails; let i of index">
+    
+    <td>{{cafe.cafeName}}</td>
+    <td>{{cafe.cafeLocation}}</td>
+    <td>{{cafe.cafeOwner}}</td>
+    <td><img [src]="cafe.cafeImagePath" alt="image" width="150" height="150"></td>
+    <td><button class="btn btn-default" (click)="giveRating(cafe)">View Ratings/Reviews</button></td>
+    <td><button class="btn btn-warning" (click)="viewMenu(cafe)">View Menu</button></td>
+    
+  </tr>
+</table>

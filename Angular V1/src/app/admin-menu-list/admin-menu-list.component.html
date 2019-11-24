@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a (click)="home()">Home</a></li>
+
+          <li><a (click)="goCafeManagement()">Cafe</a></li>
+          <li><a (click)="goMenuManagement()">Menu</a></li>
+          <li><a (click)="goOrderManagement()">Orders</a></li>
+          <li><a (click)="getall()" >Users</a></li>
+          <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()" >Logout</a></li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+
+
+<h3>Cafe Details: </h3>
+<table class="table table-bordered">
+  <tr>
+    <th>Cafe Id</th>
+    <th>Cafe Name</th>
+    <th>Cafe Location</th>
+    <th>Cafe Owner</th>
+    <th>Cafe Rating</th>
+    <th>Cafe Image</th>
+  </tr>
+  <tr>
+    <td>{{cafe.cafeId}}</td>
+    <td>{{cafe.cafeName}}</td>
+    <td>{{cafe.cafeLocation}}</td>
+    <td>{{cafe.cafeOwner}}</td>
+    <td>{{cafe.cafeRating}}</td>
+    <td><img [src]="cafe.cafeImagePath" alt="image" width="150" height="150"></td>
+  </tr>
+</table>
+
+<h3>Cafe Menu: </h3>
+<table class="table table-bordered">
+  <tr>
+    <th>Item Name</th>
+
+    <th>Item Type</th>
+    <th>Item Price</th>
+    
+    
+  </tr>
+  <tr *ngFor="let item of cafe.menus">
+    <td>{{item.itemName}}</td>
+    <td>{{item.itemType}}</td>
+    <td>{{item.itemPrice}}</td>
+    
+    
+    
+  </tr>
+</table>

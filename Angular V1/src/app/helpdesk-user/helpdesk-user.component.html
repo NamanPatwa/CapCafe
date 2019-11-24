@@ -1,0 +1,75 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a (click)="home()">Home</a></li>
+        <li><a (click)="mapList()">List Cafe</a></li>
+        <li><a (click)="goHelpdesk()">Help Me!</a></li>
+        <li><a (click)="yourOrders()">Orders</a></li>
+        <li><a (click)="profile()">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="navigateResetPassword()">Reset Password</a></li>
+        <li><a (click)="logout()" >Logout</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+
+
+<h1>Helpdesk User</h1>
+<hr>
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Helpdesk</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>
+                <p class="navbar-btn">
+                    <a (click)="latestFirst()" class="btn btn-default">Latest First</a>
+                    <a (click)="listAllOrders()" class="btn btn-default">Show All Orders</a>
+                    <span style="padding-left: 400px;">Search By Location:</span>
+                    <input type="text" [(ngModel)]=location placeholder="Enter Location">
+                    <a (click)="getOrderByLocation()" class="btn btn-default">Search</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- 
+<button class="btn btn-success" (click)="latestFirst()">Latest First</button>
+<button class="btn btn-success" (click)="listAllOrders()">List All</button>
+<form (ngSubmit)="getOrderByLocation()">
+    <input type="text" [(ngModel)]=location class="form-control" name="location" placeholder="Enter Location" required >
+    <button type="submit" class="btn btn-success">Fetch By Location</button>
+</form> -->
+
+<h3>Your Orders</h3>
+<table class="table table-bordered">
+    <tr>
+      <th>Order ID</th>
+      <th>Payment Type</th>
+      <th>Amount</th>
+      <th>Delivery Adddress</th>
+      <th>Cafe Location</th>
+      <th>Order Date </th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor = "let o of orders">
+      <td>{{o.orderId}}</td>
+      <td>{{o.paymentType}}</td>
+      <td>{{o.totalAmount}}</td>
+      <td>{{o.employeeAddress}}</td>
+      <td>{{o.location}}</td>
+      <td>{{o.orderDate | date:'E, MMM d, y'}}</td>
+      <td><button class="btn btn-info" (click)="onSelect(o)">Help Me</button></td>
+    </tr>
+  </table>
+  
+  

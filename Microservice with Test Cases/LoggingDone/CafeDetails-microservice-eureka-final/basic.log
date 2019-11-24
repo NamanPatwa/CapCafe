@@ -1,0 +1,13 @@
+2019-11-10-http-nio-8880-exec-2-INFO -com.cg.cafedetails.rest.CafeDetailsController:<<CafeDetails Controller>>
+2019-11-10-http-nio-8880-exec-2-INFO -com.cg.cafedetails.rest.CafeDetailsController:Fetching a Cafe by id
+2019-11-10-http-nio-8880-exec-2-INFO -com.cg.cafedetails.service.CafeDetailsServiceImpl:<<CafeDetails Service>>
+2019-11-10-http-nio-8880-exec-2-INFO -com.cg.cafedetails.service.CafeDetailsServiceImpl:Fetching a Cafe by id
+2019-11-10-http-nio-8880-exec-4-INFO -com.cg.cafedetails.rest.CafeDetailsController:<<CafeDetails Controller>>
+2019-11-10-http-nio-8880-exec-4-INFO -com.cg.cafedetails.rest.CafeDetailsController:Fetching a Cafe by id
+2019-11-10-http-nio-8880-exec-4-INFO -com.cg.cafedetails.service.CafeDetailsServiceImpl:<<CafeDetails Service>>
+2019-11-10-http-nio-8880-exec-4-INFO -com.cg.cafedetails.service.CafeDetailsServiceImpl:Fetching a Cafe by id
+2019-11-10-http-nio-8880-exec-4-ERROR-com.cg.cafedetails.service.CafeDetailsServiceImpl:No cafe details are available for cafeId: 103
+2019-11-10-http-nio-8880-exec-8-INFO -com.cg.cafedetails.rest.CafeDetailsController:<<CafeDetails Controller>>
+2019-11-10-http-nio-8880-exec-8-INFO -com.cg.cafedetails.rest.CafeDetailsController:Fetching all cafe details
+2019-11-10-http-nio-8880-exec-8-INFO -com.cg.cafedetails.service.CafeDetailsServiceImpl:<<CafeDetails Service>>
+2019-11-10-http-nio-8880-exec-8-INFO -com.cg.cafedetails.service.CafeDetailsServiceImpl:Fetching all cafe details

@@ -1,0 +1,54 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a (click)="home()">Home</a></li>
+
+          <li><a (click)="goCafeManagement()">Cafe</a></li>
+          <li><a (click)="goMenuManagement()">Menu</a></li>
+          <li><a (click)="goOrderManagement()">Orders</a></li>
+          <li><a (click)="getall()" >Users</a></li>
+          <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()" >Logout</a></li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+
+
+
+<h3>List Of Orders:</h3>
+<form>
+  <table class = "table table-bordered" style="text-align: center">
+    <tr>
+        <th style='text-align:center '>OrderId</th>
+      <th style='text-align:center '>Name</th>
+      <th style='text-align:center '>Address</th>
+      <th style='text-align:center '>Email</th>
+      <th style='text-align:center '>Phone</th>
+      <th style='text-align:center '>Amount</th>
+      <th style='text-align:center '>Order Details</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor = "let ord of order; let i = index" >
+        <td style="background-color: lightyellow"><b>{{ord.orderId}}</b></td>
+        <td style="background-color: lightyellow"><b>{{ord.employeeName}}</b></td>
+        <td style="background-color: lightyellow"><b>{{ord.employeeAddress}}</b></td>
+        <td style="background-color: lightyellow"><b>{{ord.employeeMail}}</b></td>
+        <td style="background-color: lightyellow"><b>{{ord.employeePhone}}</b></td>
+        <td style="background-color: lightyellow"><b>{{ord.totalAmount}}</b></td>
+        <td style="background-color: lightyellow"><b>{{ord.paymentType}}</b></td>
+        <td style="background-color: lightyellow"><button class = "btn btn-warning" (click) = "view(ord)">View Order</button></td>
+      </tr>
+  </table>
+</form>
+<button (click)="goHome()" class="btn btn-success"> Go to Homepage</button>
+  

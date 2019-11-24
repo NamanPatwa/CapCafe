@@ -1,0 +1,77 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a (click)="home()">Home</a></li>
+
+          <li><a (click)="goCafeManagement()">Cafe</a></li>
+          <li><a (click)="goMenuManagement()">Menu</a></li>
+          <li><a (click)="goOrderManagement()">Orders</a></li>
+          <li><a (click)="getall()" >Users</a></li>
+          <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()" >Logout</a></li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+
+
+<h3 style="text-align: center;">Please Edit Cafe Details:</h3> <br>
+
+<div class="container">
+
+  <form (ngSubmit)="update()" #updateForm="ngForm" >
+      <table class="table table-hover">
+
+        <tr><td>Enter Cafe Id: </td>
+          <td><input type="number" [(ngModel)]=cafe.cafeId name="cafeId" class="form-control" #id=ngModel placeholder="Enter Cafe Id" required pattern="[0-9]{1,}">
+          <span *ngIf="id.touched && id.invalid && (id.errors.required || id.errors.pattern)" class="alert-warning">
+            Invalid Id or Id cannot be empty!
+          </span></td> </tr>
+
+
+
+      <tr><td>Enter Cafe Name: </td>
+      <td><input type="text" [(ngModel)]=cafe.cafeName name="cafeName" class="form-control" #name=ngModel placeholder="Enter Cafe Name" required pattern="[A-Za-z ]{2,}">
+      <span *ngIf="name.touched && name.invalid && (name.errors.required || name.errors.pattern)" class="alert-warning">
+        Invalid Cafe name or Cafe name cannot be empty!
+      </span></td> </tr>
+    
+      <tr><td>Enter Cafe Location: </td>
+        <td><input type="text" [(ngModel)]=cafe.cafeLocation name="cafeLocation" class="form-control" #location=ngModel placeholder="Enter Cafe Location" required pattern="[A-Za-z ]{2,}">
+        <span *ngIf="location.touched && location.invalid && (location.errors.required || location.errors.pattern)" class="alert-warning">
+          Invalid Cafe location or Cafe location cannot be empty!
+        </span></td> </tr>
+      
+    
+    
+        <tr><td>Enter Cafe Owner:  </td>
+          <td><input type="text" [(ngModel)]=cafe.cafeOwner name="cafeOwner" class="form-control" #owner=ngModel placeholder="Enter Cafe Owner" required pattern="[A-Za-z ]{2,}">
+            <span *ngIf="owner.touched && owner.invalid && (owner.errors.required || owner.errors.pattern)" class="alert-warning">
+              Invalid Cafe owner or Cafe owner cannot be empty!
+            </span></td> </tr>
+  
+    
+        <tr><td>Enter Imagepath: </td>
+          <td><input type="text" [(ngModel)]="cafe.cafeImagePath" name="cafeImagePath" id="cafeImagePath" 
+            placeholder="Please Enter Cafe Imagepath" class="form-control" required >
+        </td></tr>
+    
+      <tr>
+        <td colspan="2" align="center">
+            <button class="btn btn-success" type="submit" [disabled]="!updateForm.valid">Edit Cafe</button>
+        </td>
+      </tr>
+    
+  </table>
+  </form>
+  </div>
+  

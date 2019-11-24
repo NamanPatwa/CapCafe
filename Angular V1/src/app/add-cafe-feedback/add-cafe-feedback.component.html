@@ -1,0 +1,64 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a (click)="home()">Home</a></li>
+        <li><a (click)="mapList()">List Cafe</a></li>
+        <li><a (click)="goHelpdesk()">Help Me!</a></li>
+        <li><a (click)="yourOrders()">Orders</a></li>
+        <li><a (click)="profile()">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="navigateResetPassword()">Reset Password</a></li>
+        <li><a (click)="logout()" >Logout</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+
+<h3 >Please Add Cafe Rating:</h3> <br>
+
+<div class="container">
+
+  <form (ngSubmit)="addCafeFeedback()" #addForm="ngForm" >
+      <table class="table table-hover">
+
+        <tr><td>Enter User Id: </td>
+          <td><input type="text" [(ngModel)]=userId name="userId" class="form-control" #id=ngModel placeholder="Enter User Id" required pattern="[0-9]{1,}" readonly>
+          <span *ngIf="id.touched && id.invalid && (id.errors.required || id.errors.pattern)" class="alert-warning">
+            Invalid Id or Id cannot be empty!
+          </span></td> </tr>
+
+      <!-- <tr><td>Enter Cafe Location: </td>
+        <td><input type="text" [(ngModel)]=cafeLocation name="cafeLocation" class="form-control" #location=ngModel placeholder="Enter Cafe Location" required pattern="[A-Za-z]{2,}">
+        <span *ngIf="location.touched && location.invalid && (location.errors.required || location.errors.pattern)" class="alert-warning">
+          Invalid Cafe location or Cafe location cannot be empty!
+        </span></td> </tr> -->
+      
+      <tr><td>Enter Rating: </td>
+        <td><input type="number" [(ngModel)]=cafeRating name="cafeRating" #rating=ngModel placeholder="Enter Cafe Rating" class="form-control" required >
+      <span *ngIf="rating.touched && rating.invalid && rating.errors.required" class="alert-warning">
+          Invalid Cafe rating or Cafe rating cannot be empty!
+        </span></td></tr>
+
+        <tr><td>Enter Review: </td>
+          <td><input type="text" [(ngModel)]=cafeReview name="cafeReview" #review=ngModel placeholder="Enter Cafe Review" class="form-control" required >
+        <span *ngIf="review.touched && review.invalid && review.errors.required" class="alert-warning">
+            Invalid Cafe review or Cafe review cannot be empty!
+          </span></td></tr>
+      
+       
+       
+    
+      <tr>
+        <td colspan="2" align="center">
+            <button class="btn btn-success" type="submit" [disabled]="!addForm.valid">Add Cafe Rating</button>
+        </td>
+      </tr>
+    
+  </table>
+  </form>
+  </div>

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a (click)="home()">Home</a></li>
+        <li><a (click)="mapList()">List Cafe</a></li>
+        <li><a (click)="goHelpdesk()">Help Me!</a></li>
+        <li><a (click)="yourOrders()">Orders</a></li>
+        <li><a (click)="profile()">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="navigateResetPassword()">Reset Password</a></li>
+        <li><a (click)="logout()" >Logout</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+<h3>Order Details: </h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Order ID</th>
+    <th>Payment Type</th>
+    <th>Amount</th>
+    <th>Delivery Adddress</th>
+    <th>Cafe Location</th>
+    <th>Order Date</th>
+  </tr>
+  <tr>
+    <td>{{order.orderId}}</td>
+    <td>{{order.paymentType}}</td>
+    <td>{{order.totalAmount}}</td>
+    <td>{{order.employeeAddress}}</td>
+    <td>{{order.location}}</td>
+    <td>{{order.orderDate | date:'dd.MM.y'}}</td>
+  </tr>
+</table>
+
+<h3>Order Summary:</h3>
+<table class="table table-bordered">
+  <tr>
+    <th>Item ID</th>
+    <th>Item Name</th>
+    <th>Item Type</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total Price</th>
+  </tr>
+  <tr *ngFor = "let o of order.orderDetails">
+    <td>{{o.itemId}}</td>
+    <td>{{o.itemName}}</td>
+    <td>{{o.itemType}}</td>
+    <td>{{o.itemPrice}}</td>
+    <td>{{o.quantity}}</td>
+    <td>{{o.itemTotal}}</td>
+  </tr>
+  <tr>
+    <td></td><td><td></td><td></td>
+    <td>Grand Total: </td>
+    <td>{{order.totalAmount}}</td>
+  </tr>
+</table>

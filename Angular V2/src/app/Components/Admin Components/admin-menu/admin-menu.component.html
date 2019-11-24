@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a (click)="home()">Home</a></li>
+
+          <li><a (click)="goCafeManagement()">Cafe</a></li>
+          <li><a (click)="goMenuManagement()">Menu</a></li>
+          <li><a (click)="goOrderManagement()">Orders</a></li>
+          <li><a (click)="getall()" >Users</a></li>
+          <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()" >Logout</a></li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+
+
+<div class="container">
+
+  <form (ngSubmit)="mapAdd()" #addForm="ngForm" >
+      <table class="table table-hover">
+        <tr>
+          <td>Add Menu Details: </td>
+          <td><button class="btn btn-success" type="submit" >Add/Edit Menu</button></td>
+        </tr>
+      </table>
+  </form>
+  <form (ngSubmit)="mapSearch()" #searchForm="ngForm" >
+      <table class="table table-hover">
+        <tr>
+          <td>Search Menu Details: </td>
+          <td><button class="btn btn-success" type="submit" >Search Menu Items</button></td>
+        </tr>
+      </table>
+  </form>
+  <form (ngSubmit)="mapList()" #listForm="ngForm" >
+      <table class="table table-hover">
+        <tr>
+          <td>List Menu Details: </td>
+          <td><button class="btn btn-success" type="submit" >List Menu</button></td>
+        </tr>
+      </table>
+  </form>
+</div>
+
+  
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,95 @@
+<!-- <h3>Search Cafe by Id</h3>
+
+<form (ngSubmit)="searchById()" style="text-align: center;">
+  <div class="form group">
+    <label>Enter Cafe Id: &nbsp;</label><br>
+    <input type="number" [(ngModel)]=id name="id"> <br><br>
+   </div>
+  <div class="form group"> -->
+    <!-- <label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label> -->
+    <!-- <button type="submit" class="btn btn-success">Search Cafe</button>
+  </div>
+</form>
+
+<div [hidden]="!found">
+    <h3>{{error}}</h3>
+<table class="table table-bordered">
+  <tr>
+    <th>Cafe Id</th>
+    <th>Cafe Name</th>
+    <th>Cafe Location</th>
+    <th>Cafe Owner</th>
+    <th>Cafe Rating</th>
+  </tr>
+  <tr>
+    <td>{{cafedetail.cafeId}}</td>
+    <td>{{cafedetail.cafeName}}</td>
+    <td>{{cafedetail.cafeLocation}}</td>
+    <td>{{cafedetail.cafeOwner}}</td>
+    <td>{{cafedetail.cafeRating}}</td>
+  </tr>
+</table>
+</div>  --> 
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a (click)="home()">Home</a></li>
+
+          <li><a (click)="goCafeManagement()">Cafe</a></li>
+          <li><a (click)="goMenuManagement()">Menu</a></li>
+          <li><a (click)="goOrderManagement()">Orders</a></li>
+          <li><a (click)="getall()" >Users</a></li>
+          <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()" >Logout</a></li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+
+<h3>Search Cafe by Location</h3>
+
+<form (ngSubmit)="searchByLocation()" style="text-align: center;">
+  <div class="form group">
+    <select [(ngModel)]="location" name="location" #loc=ngModel class="form-control" required>
+        <option *ngFor="let b of locations" [value]="b">{{b}} </option>
+      </select>
+      <span *ngIf="loc.touched && loc.invalid && loc.errors.required" class="alert-warning">
+          Please select correct Location!
+        </span>
+  <!-- </div>
+  <div class="form group"> -->
+    <button type="submit" class="btn btn-success">Search Cafe Location</button>
+  </div>
+</form>
+
+<div [hidden]="!found">
+<table class="table table-bordered">
+  <tr>
+    <th>Cafe Id</th>
+    <th>Cafe Name</th>
+    <th>Cafe Location</th>
+    <th>Cafe Owner</th>
+    <th>Cafe Image</th>
+    <th>View Menu</th>
+  </tr>
+  <tr *ngFor="let cafe of cafedetails; let i of index">
+      <td>{{cafe.cafeId}}</td>
+      <td>{{cafe.cafeName}}</td>
+      <td>{{cafe.cafeLocation}}</td>
+      <td>{{cafe.cafeOwner}}</td>
+      
+      <td><img [src]="cafe.cafeImagePath" alt="image" width="150" height="150" ></td>
+      <td><button class="btn btn-warning" (click)="viewMenu(cafe)">View Menu</button></td>
+  </tr>
+</table>
+</div> 

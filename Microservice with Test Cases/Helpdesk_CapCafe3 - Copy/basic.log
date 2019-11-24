@@ -1,0 +1,52 @@
+2019-11-10-http-nio-8888-exec-2-INFO -com.cg.service.OrderServiceImpl:================================================
+2019-11-10-http-nio-8888-exec-2-INFO -com.cg.service.OrderServiceImpl:POST MAPPING to give response
+2019-11-10-http-nio-8888-exec-2-INFO -com.cg.service.HelpdeskServiceImpl:<<Send response service>>
+2019-11-10-http-nio-8888-exec-2-INFO -com.cg.service.OrderServiceImpl:<<Add request response service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Raise Ticket service>>
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Get By Id service>>
+2019-11-10-main-ERROR-com.cg.service.HelpdeskServiceImpl:Order with Order ID: 10010 not found
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Raise Ticket service>>
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Get By Id service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Order with Order ID: 1001 found
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Ticket already exists add request-response
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Add request response service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Raise Ticket service>>
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Get By Id service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Order with Order ID: 1001 found
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Ticket already exists add request-response
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Add request response service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Raise Ticket service>>
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Get By Id service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Order with Order ID: 1001 found
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Ticket already exists add request-response
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Add request response service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Raise Ticket service>>
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Get By Id service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Order with Order ID: 1001 found
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Ticket already exists add request-response
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Add request response service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<List all Ticket service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<List all Ticket service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Count resolved queries service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Raise Ticket service>>
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Get By Id service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Order with Order ID: 1001 found
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Ticket already exists add request-response
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Add request response service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Raise Ticket service>>
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Get By Id service>>
+2019-11-10-main-ERROR-com.cg.service.HelpdeskServiceImpl:Order with Order ID: 10010 not found
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<List Unresolved Ticket service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Get by id service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Add new order service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Get all orders service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Count Unresolved queries service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Get by ticket number service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:Ticket not found for ID: 11111
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Get by order id service>>
+2019-11-10-main-INFO -com.cg.service.OrderServiceImpl:<<Get By Id service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<List all Ticket service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Send response service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<List resolved Ticket service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Get tickets by location service>>
+2019-11-10-main-INFO -com.cg.service.HelpdeskServiceImpl:<<Mark as resolved service>>

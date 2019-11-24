@@ -1,0 +1,51 @@
+MySql connection:
+Mysql JS>  \sql
+Mysql SQL>  \connect root@localhost 
+type password:root
+
+
+
+Query:
+create database cafedetails;
+use cafedetails;
+
+INSERT INTO cafemenu (item_id,item_name,item_price,item_type) VALUES
+   (1,'FrenchFries', 75.0,'Veg'),
+   (2,'Sandwich', 45.0,'Veg'),
+   (3,'PavBhaji',155.0,'Jain'),
+   (4,'ChickenRoll', 55.0, 'NonVeg');
+
+select * from cafemenu;
+select * from cafedetails;
+select * from detailandmenu;
+
+drop database cafedetails;
+
+
+Postman add:
+{
+"cafeId":501,
+"cafeName":"MunchBox",
+"cafeLocation":"Kandivali",
+"cafeOwner":"Aditi",
+"cafeRating":4.8,
+
+	"menus":[
+
+		{
+"itemId":3,
+"itemName":"PavBhaji",
+"itemType":"Veg",
+"itemPrice":155.0
+},
+
+		{
+"itemId":2,
+"itemName":"Sandwich",
+"itemType":"Jain",
+"itemPrice":65.0
+}
+
+		]
+
+}

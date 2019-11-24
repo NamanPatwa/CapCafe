@@ -1,0 +1,91 @@
+<head> 
+    <link rel="stylesheet" 
+          href= 
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <style> 
+        .input-icons i { 
+            position: absolute; 
+        } 
+          
+        .input-icons { 
+            width: 100%; 
+            margin-bottom: 10px; 
+        } 
+          
+        .icon { 
+            padding: 10px; 
+            min-width: 40px; 
+        } 
+          
+        .input-field { 
+            width: 100%; 
+            padding: 10px; 
+            text-align: center; 
+        } 
+    </style> 
+  </head> 
+ 
+  
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">CapCafe</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a (click)="home()">Home</a></li>
+  
+            <li><a (click)="goCafeManagement()">Cafe</a></li>
+            <li><a (click)="goMenuManagement()">Menu</a></li>
+            <li><a (click)="goOrderManagement()">Orders</a></li>
+            <li><a (click)="getall()" >Users</a></li>
+            <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+        </ul>
+  
+        <ul class="nav navbar-nav navbar-right">
+            <li><a (click)="logout()" >Logout</a></li>
+          </ul>
+  
+      </div>
+    </nav>
+  
+  
+  
+  
+    
+  <!-- <h3 style="text-align: center; color: rgb(61, 59, 59);">List Of Menu Items</h3> <br>
+  <a href="http://localhost:4200/menu/search" class="btn btn-default">Search<i class="fa fa-search icon"></i> </a>
+  <button class="btn btn-info" (click)="redirectToAddCafe(i)"><i class="fa-fast-backward"></i> Go to Add Cafe </button>
+   -->
+  <form (ngSubmit)="searchMenu()">
+    <div class="form group">
+      <label>Enter Item Name: </label><br>
+      <input type="text" [(ngModel)]=itemName name="itemName"><br><br> 
+    </div>
+    <div class="form group">
+      <button type="submit" class="btn btn-success">Search Item</button>
+    </div>
+  </form>
+
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Item Id</th>
+      <th>Item Name</th>
+      <th>Item Type</th>
+      <th>Item Price</th>
+      <th>Add to Cafe</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let item of menus; let i of index">
+      <td>{{item.itemId}}</td>
+      <td>{{item.itemName}}</td>
+      <td>{{item.itemType}}</td>
+      <td>{{item.itemPrice}}</td>
+      <td><button class="btn btn-default" (click)="addToCafe(item)"> Add to Cafe </button></td>
+      
+      <td><button class="btn btn-danger" (click)="delete(i)"><i class="fa fa-trash-o"></i> Delete </button>
+        &nbsp;<a (click)="goEdit()" class="btn btn-default"> Edit<i class="fa fa-edit icon"></i> </a>
+      </td>
+    </tr>
+  </table>
+

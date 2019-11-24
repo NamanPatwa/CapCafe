@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a (click)="home()">Home</a></li>
+        <li><a (click)="mapList()">List Cafe</a></li>
+        <li><a (click)="goHelpdesk()">Help Me!</a></li>
+        <li><a (click)="yourOrders()">Orders</a></li>
+        <li><a (click)="profile()">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="navigateResetPassword()">Reset Password</a></li>
+        <li><a (click)="logout()" >Logout</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+
+
+<h3>Item Details: </h3>
+<table class="table table-bordered">
+  <tr>
+    <th>Item Name</th>
+    <th>Item Type</th>
+    <th>Item Price</th>
+    <th>Rating</th>
+    
+    
+  </tr>
+  <tr>
+    <td>{{item.itemName}}</td>
+    <td>{{item.itemType}}</td>
+    <td>{{item.itemPrice}}</td>
+    <td>{{avg}}</td>
+  </tr>
+</table>
+
+<h3>Cafe Reviews:</h3> 
+  <button (click)="addReview()" class="btn btn-info">Add Review</button>
+  <table class="table table-bordered">
+    <tr>
+      <th>User Name</th>
+      <th>Review</th>
+      <th>Review Date</th>
+    </tr>
+  
+    <tr *ngFor="let c of feedback">
+      <td>{{c.users.employeeName}}</td>
+      <td>{{c.review}}</td>
+      <td>{{c.date}}</td>     
+    </tr>
+  </table>

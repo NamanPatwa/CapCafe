@@ -1,0 +1,57 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a (click)="home()">Home</a></li>
+        <li><a (click)="mapList()">List Cafe</a></li>
+        <li><a (click)="goHelpdesk()">Help Me!</a></li>
+        <li><a (click)="yourOrders()">Orders</a></li>
+        <li><a (click)="profile()">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="navigateResetPassword()">Reset Password</a></li>
+        <li><a (click)="logout()" >Logout</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+
+<h3>Cafe Details:</h3>
+<table class="table table-bordered">
+    <tr>
+      <th>Cafe Name</th>
+      <th>Cafe Location</th>
+      <th>Cafe Owner</th>
+      <th>Average Rating</th>
+      <th>Cafe Image</th> 
+    </tr>
+  
+    <tr>
+      <td>{{cafe.cafeName}}</td>
+      <td>{{cafe.cafeLocation}}</td>
+      <td>{{cafe.cafeOwner}}</td>
+      <td>{{avgRating}}</td>
+      <td><img [src]="cafe.cafeImagePath" alt="image" width="150" height="150"></td>      
+    </tr>
+  </table>
+
+  <h3>Cafe Reviews:</h3> 
+  <button (click)="addReview()" class="btn btn-info">Add Review</button>
+  <table class="table table-bordered">
+    <tr>
+      <th>User Name</th>
+      <th>Review</th>
+      <th>Review Date</th>
+    </tr>
+  
+    <tr *ngFor="let c of cafeReview">
+      <td>{{c.users.employeeName}}</td>
+      <td>{{c.review}}</td>
+      <td>{{c.date}}</td>     
+    </tr>
+  </table>
+
+    

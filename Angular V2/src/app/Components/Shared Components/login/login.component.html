@@ -1,0 +1,44 @@
+<head> 
+    <link rel="stylesheet" 
+          href= 
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <style> 
+        
+    </style> 
+  </head>
+
+<h1 align="center"><img src="src/app/Images/cap.png" width="400" height="300" alt="CapCafe"></h1>
+<!-- <img style="position: absolute;" width="550" height="550" src="src/app/Images/food1.jpeg" alt="Food"> -->
+
+<div align="center" class="container">
+  <form (ngSubmit)="login()" class="login-container" #loginForm="ngForm">
+    <table align="center" style="width: 600px;" class="table table-striped">
+        <tr><th colspan="2"><h2 class="login-header">Log in</h2></th></tr>
+
+      <tr><td width="30%">Employee ID: </td>
+          <td><input type="text" class="form-control" name="empId" [(ngModel)]=empId #emppId=ngModel required pattern="[0-9]{3,5}" placeholder="Please Enter your employee Id">
+           <span *ngIf="emppId.touched && emppId.invalid && (emppId.errors.required || emppId.errors.pattern)">
+            Employee ID should be between 3 and 5 characters
+          </span>
+      </td></tr>
+        
+        <tr><td width="30%">Employee password: </td>
+          <td><input type="password" class="form-control" name="password" [(ngModel)]=password #empPass=ngModel required placeholder="Please Enter your password" pattern="[A-Za-z0-9]{5,}">
+           <span *ngIf="empPass.touched && empPass.invalid && (empPass.errors.required || empPass.errors.pattern)">
+            Please enter valid password
+          </span>
+        </td></tr>
+
+        <tr><td colspan="2" align="center">  
+          <button type="submit" [disabled]="!loginForm.valid" class="form-control"><i class="fa fa-user icon"></i>&nbsp;Login</button>
+        </td></tr>
+  
+        <tr>
+          <td align="center"><a style="padding-left: 80px;" (click)="navigateSignup()"><i class="fa fa-user-plus icon"></i>&nbsp;Signup</a></td>
+          <td align="center"><a style="padding-left: 50px;" (click)="navigateForgotPassword()">Forgot password&nbsp;<i class="fa fa-question-circle icon"></i></a></td>
+        </tr>
+        
+  </table>
+</form>
+</div>
+

@@ -1,0 +1,83 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a (click)="home()">Home</a></li>
+
+          <li><a (click)="goCafeManagement()">Cafe</a></li>
+          <li><a (click)="goMenuManagement()">Menu</a></li>
+          <li><a (click)="goOrderManagement()">Orders</a></li>
+          <li><a (click)="getall()" >Users</a></li>
+          <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()" >Logout</a></li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+
+
+<h3 > Add New Menu Item:</h3> <br>
+
+<div class="container">
+
+  <form (ngSubmit)="add(addForm)" #addForm="ngForm" >
+      <table class="table table-hover">
+
+        <tr><td>Enter Item Id: </td>
+          <td><input type="number" [(ngModel)]=menuItem.itemId name="itemId" class="form-control" #itemId=ngModel placeholder="Enter Item Id" required pattern="[0-9]{1,}">
+          <span *ngIf="itemId.touched && itemId.invalid && (itemId.errors.required || itemId.errors.pattern)" class="alert-warning">
+            Invalid Item Id or Id cannot be empty!
+          </span></td> </tr>
+
+
+
+      <tr><td>Enter Item Name: </td>
+      <td><input type="text" [(ngModel)]=menuItem.itemName name="itemName" class="form-control" #name=ngModel placeholder="Enter Item Name" required pattern="[A-Za-z ]{2,}">
+      <span *ngIf="name.touched && name.invalid && (name.errors.required || name.errors.pattern)" class="alert-warning">
+        Invalid Item name or Item name cannot be empty!
+      </span></td> </tr>
+    
+      <tr><td>Select Item Type: </td>
+        <td>
+       <!-- <label for="itemType">Select</label> -->
+      <select class="form-control" id="itemType" [(ngModel)]="menuItem.itemType" name="itemType" required>
+        <option class="green" value="Veg" >Veg</option>
+        <option class="red" value="Non Veg">Non Veg</option>
+      </select>
+      </td> </tr>
+      
+    
+    
+        <tr><td>Enter Item Price:  </td>
+          <td><input type="number" [(ngModel)]=menuItem.itemPrice name="itemPrice" class="form-control" #price=ngModel placeholder="Enter Item Price " required pattern ="[1-9]+[0-9]*">
+            <span *ngIf="price.touched && price.invalid && (price.errors.required || name.errors.pattern ) " class="alert-warning">
+              Invalid Item Price or Price  cannot be zero or empty!
+            </span></td> </tr>
+  
+  
+    
+      
+    
+    
+      <tr>
+        <td colspan="6" align="right">
+            <button class="btn btn-success" type="submit" [disabled]="!addForm.valid">Add Item</button>
+            &nbsp;
+            <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+        </td>
+        
+      </tr>
+      
+    
+  </table>
+  
+  </form>
+  </div>

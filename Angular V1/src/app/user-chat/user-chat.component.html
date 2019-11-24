@@ -1,0 +1,122 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a (click)="home()">Home</a></li>
+        <li><a (click)="mapList()">List Cafe</a></li>
+        <li><a (click)="goHelpdesk()">Help Me!</a></li>
+        <li><a (click)="yourOrders()">Orders</a></li>
+        <li><a (click)="profile()">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="navigateResetPassword()">Reset Password</a></li>
+        <li><a (click)="logout()" >Logout</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+
+
+<h1>User Chat Helpdesk</h1>
+<h3>Order ID : {{orderId}}</h3>
+<hr>
+<h3>Order Details:</h3>
+
+
+
+<table class="table table-bordered">
+    <tr>
+      <th>Order ID</th>
+      <th>Payment Type</th>
+      <th>Amount</th>
+      <th>Delivery Adddress</th>
+      <th>Cafe Location</th>
+      <th>Order Date</th>
+    </tr>
+    <tr>
+      <td>{{order.orderId}}</td>
+      <td>{{order.paymentType}}</td>
+      <td>{{order.totalAmount}}</td>
+      <td>{{order.employeeAddress}}</td>
+      <td>{{order.location}}</td>
+      <td>{{order.orderDate | date:'dd.MM.y'}}</td>
+    </tr>
+  </table>
+
+  <h3>Order Summary:</h3>
+  <table class="table table-bordered">
+    <tr>
+      <th>Item ID</th>
+      <th>Item Name</th>
+      <th>Item Type</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+    </tr>
+    <tr *ngFor = "let o of order.orderDetails">
+      <td>{{o.itemId}}</td>
+      <td>{{o.itemName}}</td>
+      <td>{{o.itemType}}</td>
+      <td>{{o.itemPrice}}</td>
+      <td>{{o.quantity}}</td>
+      <td>{{o.itemTotal}}</td>
+    </tr>
+    <tr>
+      <td></td><td><td></td><td></td>
+      <td>Grand Total: </td>
+      <td>{{order.totalAmount}}</td>
+    </tr>
+  </table>
+
+  <h3>Ticket Details :</h3>
+  <button class="btn btn-success" (click)="markAsResolved()"> Mark As Resolved </button>  
+  <table class="table table-bordered">
+      <tr>
+        <th>Ticket ID</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Location</th>
+      </tr>
+      <tr>
+        <td>{{ticket.ticketNumber}}</td>
+        <td>
+            <span [ngStyle]="{'color': ticket?.status === 'Resolved' ? 'green' : 'red'}"> {{ticket.status}} </span>
+        </td>
+        <td>{{ticket.date}}</td>
+        <td>{{ticket.location}}</td>
+      </tr>
+    </table>
+
+
+
+
+    <table align="center" class="table table-bordered" style="width: 800px;">
+        <tr>
+          <th>Message </th>
+          <th>Timestamp</th>
+        </tr>
+        <tr *ngFor = "let m of ticket?.messages">
+          <td [ngStyle]="{'text-align' : m.type === 'Response' ? 'left' : 'right'}">
+              <span [ngStyle]="{'color': m.type === 'Response' ? 'red' : 'green'}"> {{m.message}} </span>
+          </td>
+          <td style="width: 210px;">{{m.timestamp | date:'E, MMM d, y, h:mm:ss a'}}</td>
+        </tr>
+    </table>
+
+
+    <form (ngSubmit)= "giveRequestByOrderId()" #addResponse= "ngForm">
+        <div class="panel-footer" style="height: 100px;">
+            <div class="input-group">
+                <input id="btn-input" #msg=ngModel style="height: 50px;" name="message" [(ngModel)] = "message" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." required />
+                <span *ngIf = "msg.touched && msg.invalid && (msg.errors.required || msg.errors.pattern)" class="alert-warning">
+                    Invalid name or name cannot be empty
+                </span>
+                <span class="input-group-btn">
+                <button class="btn btn-primary" [disabled]="!addResponse.valid" type="submit" id="btn-chat">Send Response <span class="glyphicon glyphicon-send"></span></button>
+                </span>
+            </div>
+        </div>
+    </form>

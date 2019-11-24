@@ -1,0 +1,89 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a (click)="home()">Home</a></li>
+
+          <li><a (click)="goCafeManagement()">Cafe</a></li>
+          <li><a (click)="goMenuManagement()">Menu</a></li>
+          <li><a (click)="goOrderManagement()">Orders</a></li>
+          <li><a (click)="getall()" >Users</a></li>
+          <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()" >Logout</a></li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+
+
+<h1>Admin Helpdesk</h1>
+
+<h3>Total Resolved Tickets are : {{resolved}}</h3>
+<h3>Total Unresolved Tickets are : {{unresolved}}</h3>
+
+<!-- <button class="btn btn-success" (click)="listAllTickets()"> Show All Tickets</button> 
+<button class="btn btn-success" (click)="listResolvedTickets()"> Show Resolved Tickets</button> 
+<button class="btn btn-success" (click)="listUnresolvedTickets()"> Show Unresolved Tickets</button> 
+<button class="btn btn-success" (click)="latestFirst()">Latest First</button> -->
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Helpdesk</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>
+                <p class="navbar-btn">
+                    <a (click)="latestFirst()" class="btn btn-default">Latest First</a>
+                    <a (click)="listAllTickets()" class="btn btn-default">Show All Tickets</a>
+                    <a (click)="listResolvedTickets()" class="btn btn-default">Show Resolved Tickets</a>
+                    <a (click)="listUnresolvedTickets()" class="btn btn-default">Show Unresolved Tickets</a>
+                    <span style="padding-left: 15px;">Search By Cafe Location:</span>
+                    <input type="text" name="location" [(ngModel)]=location placeholder="Enter Location">
+                    <a (click)="listByLocation()" class="btn btn-default">Search</a>
+                    <!-- <form (ngSubmit)="listByLocation()">
+                        <input type="text" [(ngModel)]=location class="form-control" style="width: 150px;" name="location" placeholder="Enter Location" required />
+                        <button type="submit" class="btn btn-default">Fetch By Location</button>
+                    </form> -->
+                </p>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+  <!-- <form (ngSubmit)="listByLocation()">
+    <input type="text" [(ngModel)]=location class="form-control" style="width: 150px;" name="location" placeholder="Enter Location" required >
+    <button type="submit" class="btn btn-default">Fetch By Location</button>
+  </form> -->
+
+
+
+<table class="table table-bordered" [hidden] = "!getUnresolved">
+    <tr>
+      <th>Ticket ID</th>
+      <th>Status <button class="btn btn-default" (click)="resolvedFirst()">Resolved First</button> <button class="btn btn-default" (click)="unresolvedFirst()">Unresolved First</button> </th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Order ID</th>
+      <th>View Details</th>
+    </tr>
+    <tr *ngFor = "let t of tickets">
+      <td>{{t.ticketNumber}}</td>
+      <td>
+        <span [ngStyle]="{'color': t.status === 'Resolved' ? 'green' : 'red'}"> {{t.status}} </span>
+      </td>
+      <td>{{t.date}}</td>
+      <td>{{t.location}}</td>
+      <td>{{t.order.orderId}}</td>
+      <td><button class="btn btn-info" (click)="onSelect(t)">View Details</button></td>
+    </tr>
+  </table>

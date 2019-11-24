@@ -1,0 +1,10 @@
+{
+    "employeeId": "1001",
+    "employeeName": "Naman",
+    "employeePassword": "naman",
+    "employeePhone": "9619836216",
+    "employeeMail": "isha@gmail.com",
+    "employeeRole": "ADMIN",
+    "question": "First mobile ?",
+    "answer": "iphone"
+	}

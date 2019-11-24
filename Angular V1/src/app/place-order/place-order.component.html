@@ -1,0 +1,97 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a (click)="home()">Home</a></li>
+        <li><a (click)="mapList()">List Cafe</a></li>
+        <li><a (click)="goHelpdesk()">Help Me!</a></li>
+        <li><a (click)="yourOrders()">Orders</a></li>
+        <li><a (click)="profile()">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="navigateResetPassword()">Reset Password</a></li>
+        <li><a (click)="logout()" >Logout</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+
+
+<h3 >Please Add Orders:</h3> <br>
+<div class="container">
+  
+      <table class = "table table-bordered" style="text-align: center">
+          <tr>
+              <th style='text-align:center '><button class = "btn btn-info" (click) = "sortByCoaching()" style="text-align: center">Item Id</button></th>
+              <th style='text-align:center '><button class = "btn btn-info" (click) = "sortByPin()" style="text-align: center">Item Name</button></th>
+              <th style='text-align:center '><button class = "btn btn-info" (click) = "sortByEmailId()" style="text-align: center">Type</button></th>
+              <th style='text-align:center '><button class = "btn btn-info" (click) = "sortByPin()" style="text-align: center">Price Per Item</button></th>
+              <th style='text-align:center '><button class = "btn btn-info" (click) = "sortByPin()" style="text-align: center">Quantity</button></th>
+              <th style='text-align:center '><button class = "btn btn-info" (click) = "sortByPin()" style="text-align: center">Total</button></th>   
+          </tr>
+          <tr *ngFor = "let coll of collection" >
+              <td style="background-color: lightyellow"><b>{{coll.itemId}}</b></td>
+              <td style="background-color: lightyellow"><b>{{coll.itemName}}</b></td>
+              <td style="background-color: lightyellow"><b>{{coll.itemType}}</b></td>
+              <td style="background-color: lightyellow"><b>{{coll.itemPrice}}</b></td>
+              <td style="background-color: lightyellow"><b>{{coll.quantity}}</b></td>
+              <td style="background-color: lightyellow"><b>{{coll.itemTotal}}</b></td>
+          </tr>
+          <tr>
+            <td></td><td></td><td></td><td></td><td>Total:</td>
+            <td><input type="text" readonly [(ngModel)]=order.totalAmount > </td>
+          </tr>
+      </table>
+    </div>   
+
+  <form (ngSubmit)="addOrder()" #addForm="ngForm" >
+    <table class="table table-hover">
+
+          <tr><td> Employee ID:  </td>
+            <td><input type="number" [(ngModel)]=order.employeeId name="employeeId" class="form-control"  placeholder="Enter Employee Id" readonly>
+          </td> </tr>
+
+        <tr><td>Customer Name: </td>
+          <td><input type="text" [(ngModel)]=order.employeeName name="employeeName" class="form-control" placeholder="Enter Cafe Id" readonly>
+        </td> </tr>
+      
+    
+      <tr><td>Customer Email </td>
+        <td><input type="text" [(ngModel)]=order.employeeMail name="employeeMail" class="form-control" placeholder="Enter Email Id" readonly>
+       </td> </tr>
+    
+      <tr><td>Customer Phone:  </td>
+          <td><input type="text" [(ngModel)]=order.employeePhone name="employeePhone" class="form-control"  placeholder="Enter Phone No" readonly>
+        </td> </tr>
+      
+        <tr><td>Cafe Location:  </td>
+          <td><input type="text" [(ngModel)]=order.location name="location" class="form-control"  placeholder="Enter Employee Id" readonly>
+        </td> </tr>
+        
+        
+
+            <tr><td>Enter Payment Type  </td>
+            <td>
+              <select [(ngModel)]=order.paymentType name="paymentType" class="form-control"  required>
+                  <option *ngFor="let p of payments" [value]="p">{{p}} </option>
+              </select>    
+            </td> </tr>
+
+            <tr><td>Enter customer Address: </td>
+              <td><input type="text" [(ngModel)]=order.employeeAddress name="employeeAddress" class="form-control"  placeholder="Enter Your Address">
+            </td> </tr>
+
+         <tr>
+        <td colspan="2" align="center">
+            <button class="btn btn-success" type="submit" [disabled]="!addForm.valid">Confirm Your Order</button>
+        </td>
+      </tr>
+    
+    </table>
+  </form>
+  
+  
+  

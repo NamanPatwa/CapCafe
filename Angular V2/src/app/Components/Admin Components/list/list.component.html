@@ -1,0 +1,91 @@
+<head> 
+    <link rel="stylesheet" 
+          href= 
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <style> 
+        .input-icons i { 
+            position: absolute; 
+        } 
+          
+        .input-icons { 
+            width: 100%; 
+            margin-bottom: 10px; 
+        } 
+          
+        .icon { 
+            padding: 10px; 
+            min-width: 40px; 
+        } 
+          
+        .input-field { 
+            width: 100%; 
+            padding: 10px; 
+            text-align: center; 
+        } 
+    </style> 
+  </head> 
+
+
+
+
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">CapCafe</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a (click)="home()">Home</a></li>
+  
+            <li><a (click)="goCafeManagement()">Cafe</a></li>
+            <li><a (click)="goMenuManagement()">Menu</a></li>
+            <li><a (click)="goOrderManagement()">Orders</a></li>
+            <li><a (click)="getall()" >Users</a></li>
+            <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+        </ul>
+  
+        <ul class="nav navbar-nav navbar-right">
+            <li><a (click)="logout()" >Logout</a></li>
+          </ul>
+  
+      </div>
+    </nav>
+  
+  
+  
+  
+
+
+<h3 style="text-align: center; color: rgb(61, 59, 59);">List of all cafes</h3> <br>
+
+<button (click) = "goToAddCafe()" class="btn btn-default">Add Cafe</button>
+<button (click) = "goToEditCafe()" class="btn btn-default">Edit Cafe</button>
+
+<div style="float: right;">
+<input type="text" [(ngModel)]=location name="location" placeholder="Please Search Cafe Location"> 
+<button (click) = "searchByLocation()" class="btn btn-default">Search</button>
+</div>
+
+
+  
+
+<table class="table table-bordered">
+  <tr>
+    <th>Cafe Id</th>
+    <th>Cafe Name</th>
+    <th>Cafe Location</th>
+    <th>Cafe Owner</th>
+
+    <th>Cafe Image</th>
+    <th>Action</th>
+    <th>View Menu</th>
+  </tr>
+  <tr *ngFor="let cafe of cafedetails; let i of index">
+    <td>{{cafe.cafeId}}</td>
+    <td>{{cafe.cafeName}}</td>
+    <td>{{cafe.cafeLocation}}</td>
+    <td>{{cafe.cafeOwner}}</td>
+    <td><img [src]="cafe.cafeImagePath" alt="image" width="150" height="150"></td>
+    <td><button class="btn btn-danger" (click)="delete(i)"> <i class="fa fa-trash-o"></i> Delete</button></td>
+    <td><button class="btn btn-warning" (click)="viewMenu(cafe)"> <i class="fa-mars"></i> View Menu</button></td>
+  </tr>
+</table>

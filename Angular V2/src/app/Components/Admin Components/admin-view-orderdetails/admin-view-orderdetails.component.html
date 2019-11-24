@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">CapCafe</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a (click)="home()">Home</a></li>
+
+          <li><a (click)="goCafeManagement()">Cafe</a></li>
+          <li><a (click)="goMenuManagement()">Menu</a></li>
+          <li><a (click)="goOrderManagement()">Orders</a></li>
+          <li><a (click)="getall()" >Users</a></li>
+          <li><a (click)="goHelpdesk()">Helpdesk</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a (click)="logout()" >Logout</a></li>
+        </ul>
+
+    </div>
+  </nav>
+
+
+
+
+
+
+<h3 >Order Summary: </h3> <br>
+<div class="container">
+  <table class = "table table-bordered" style="text-align: center">
+    <tr>
+      <th style='text-align:center '>Item Id</th>
+      <th style='text-align:center '>Item Name</th>
+      <th style='text-align:center '>Type</th>
+      <th style='text-align:center '>Price Per Item</th>
+      <th style='text-align:center '>Quantity</th>
+      <th style='text-align:center '>Total</th>
+    </tr>
+    <tr *ngFor = "let coll of collection; let i = index" >
+        <td style="background-color: lightyellow"><b>{{coll.itemId}}</b></td>
+        <td style="background-color: lightyellow"><b>{{coll.itemName}}</b></td>
+        <td style="background-color: lightyellow"><b>{{coll.itemType}}</b></td>
+        <td style="background-color: lightyellow"><b>{{coll.itemPrice}}</b></td>
+        <td style="background-color: lightyellow"><b>{{coll.quantity}}</b></td>
+        <td style="background-color: lightyellow"><b>{{coll.itemTotal}}</b></td>
+      </tr>
+  </table>
+<button (click)="goHome()" class="btn btn-success">Go to Homepage</button>
